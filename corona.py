@@ -50,7 +50,7 @@ def botubaslat(maill,sifre,yolla):
             soup = BeautifulSoup(r.content,"lxml")
             Baslik = soup.find("div",attrs={"class":"baslik-tablo"}).text.strip()
             Tarih = soup.find("div",attrs={"class":"takvim text-center"}).select("p:nth-of-type(1)")[0].text + " " + soup.find("div",attrs={"class":"takvim text-center"}).select("p:nth-of-type(2)")[0].text + " " +soup.find("div",attrs={"class":"takvim text-center"}).select("p:nth-of-type(3)")[0].text
-            Test = float(soup.find("ul",attrs={"list-group list-group-genislik"}).select("li:nth-of-type(1)> span:nth-of-type(2)")[0].text.strip())
+            Test = float(soup.find("ul",attrs={"list-group list-group-genislik"}).select("li:nth-of-type(1)> span:nth-of-type(2)")[0].text.strip().replace(".",""))
             Vaka = soup.find("ul",attrs={"list-group list-group-genislik"}).select("li:nth-of-type(2)> span:nth-of-type(2)")[0].text
             Vefat = soup.find("ul",attrs={"list-group list-group-genislik"}).select("li:nth-of-type(3)> span:nth-of-type(2)")[0].text
             Yogun = soup.find("ul",attrs={"list-group list-group-genislik"}).select("li:nth-of-type(4)> span:nth-of-type(2)")[0].text
@@ -84,7 +84,7 @@ def botubaslat(maill,sifre,yolla):
                     eski = Test
 
 
-    l=Label(text=0,font="Verdana 16 bold")
+    l=Label(text=0,font="Verdana 16 bold",bg="#282c34")
     l.place(x=124,y=0)
 
     corona()
